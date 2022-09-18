@@ -4,7 +4,8 @@
     "main": "server.mjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.mjs"
+        "start": "node server.mjs",
+        "dev": "nodemon server.mjs -e mjs,js,hbs"
     },
     "keywords": [],
     "author": "",
@@ -14,6 +15,7 @@
         "body-parser": "^1.20.0",
         "bootstrap": "^5.2.1",
         "express": "^4.18.1",
-        "hbs": "^4.2.0"
+        "hbs": "^4.2.0",
+        "mongoose": "^6.6.1"
     }
 }
