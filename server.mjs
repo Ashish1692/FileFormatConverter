@@ -29,6 +29,9 @@ app.get('/', (req, res) => {
 app.get('/converterDashboard', (req, res) => {
     res.render('converterDashboard')
 })
+app.get('/register', (req, res) => {
+    res.render('register')
+})
 
 
 app.listen(port, () => {

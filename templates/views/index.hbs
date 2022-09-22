@@ -1,67 +1,25 @@
 {{> header}}
 
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav
-                        class="navbar container navbar-expand-lg navbar-dark fs-5"
-                    >
-                        <div class="container-fluid">
-                            <a class="navbar-brand fs-2" href="#">{{#each data}}{{secretetoken}}{{/each}}</a>
-                            <button
-                                class="navbar-toggler"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navbarNav"
-                                aria-controls="navbarNav"
-                                aria-expanded="true"
-                                aria-label="Toggle navigation"
-                            >
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div
-                                class="collapse navbar-collapse"
-                                id="navbarNav"
-                            >
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link active"
-                                            aria-current="page"
-                                            href="#"
-                                        >Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="#"
-                                        >Features</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Pricing</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link disabled"
-                                        >Disabled</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="main-content">
-                        <div>
-                            <a href="/converterDashboard"><button class="start-btn">Get Started</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+<div id="nav" class="bg-transparent border-bottom">
+<nav class="navbar bg-transparent container">
+    <div class="container-fluid">
+        <a class="navbar-brand logo">FileFormatConverter</a>
+        <div class="d-flex links">
+            <a class="nav-link me-4" aria-current="page" href="#">Docs</a>
+            <a class="nav-link" href="#">Register</a>
         </div>
+    </div>
+</nav>
+</div>
 
+
+
+<div class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
+    <div class="mb-3 container">
+  <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">Secrete Token Key: </label>
+  <input type="text" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="Enter Your Token Key">
+</div>
+  <button type="button" class="btn btn-primary btn-lg py-3 start-btn">Get Started</button>
+</div>
 
 {{> foot}}
