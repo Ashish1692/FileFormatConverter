@@ -26,16 +26,14 @@ app.get('/', (req, res) => {
 // verify the token key with mongodb and then load dashboard page
 app.post('/index', async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const doc = new newModel({
-            email: email,
-            password: password
-        });
-        if (!email && !password) {
-            return res.render('index', { msg: "Please fill the all details.", data: email })
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const userData = await newModel.findOne({ email: email });
+        if (userData) {
+            res.render("converterDashboard");
         } else {
-            // await doc.save();
-            res.render('converterDashboard')
+            res.render("index", { msg: "email or password is incorrect!" })
         }
     } catch (error) {
         console.log(error);
