@@ -29,12 +29,19 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await newModel.find({ email: email, password: password });
-        if (userData) {
-            res.render("converterDashboard");
-        } else {
-            res.render("index", { msg: "email or password is incorrect!" })
-        }
+        const userData = await newModel.findOne({ email: email }, (err, foundResult) => {
+            if (err) {
+                console.log(err);
+            } else {
+                if (foundResult.password === password) {
+                    res.render('converterDashboard');
+                }
+                else {
+                    res.render('index', { msg: 'email or password is incorrect!' })
+                }
+            }
+        });
+
     } catch (error) {
         console.log(error);
     }
