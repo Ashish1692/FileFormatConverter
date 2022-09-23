@@ -1,11 +1,16 @@
 import mongoose from "mongoose";
 
 const newSchema = mongoose.Schema({
-    secretetoken: {
+    email: {
         type: String,
         required: true
     },
-    email: {
+    fullname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    password: {
         type: String,
         required: true,
         trim: true
@@ -13,5 +18,5 @@ const newSchema = mongoose.Schema({
 
 });
 
-const newModel = mongoose.model('converter', newSchema);
+const newModel = mongoose.model('userData', newSchema);
 export default newModel

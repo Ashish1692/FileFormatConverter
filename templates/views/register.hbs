@@ -12,16 +12,20 @@
 </div>
 
 
-// this will be a form //
-<div class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
-    <div class="mb-3 container">
-  <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">Secrete Token Key: </label>
-  <input type="text" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="Token Key">
-  <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">email: </label>
-  <input type="text" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="email">
-  <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">name: </label>
-  <input type="text" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="full name">
-</div>
-  <a href="/"><button type="button" class="btn btn-primary btn-lg py-3 start-btn">register</button></a>
-</div>
+
+<form action="/register" method="POST" class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
+    <div class="mb-3 container w-75">
+            <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">FullName: </label>
+            <input type="text" name="fullname" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="FullName">
+            <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Email: </label>
+            <input type="text" name="email" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="Email">
+            <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Password: </label>
+            <input type="password" name="password" class="form-control p-2 fs-3 tokenInput mb-2" id="formGroupExampleInput" placeholder="Password">
+            
+            <span class="text-danger fs-5 py-4">{{msg}}</span>
+
+
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg py-3 start-btn">register</button>
+</form>
 {{> foot}}

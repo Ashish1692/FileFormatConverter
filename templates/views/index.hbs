@@ -1,25 +1,31 @@
 {{> header}}
-
 <div id="nav" class="bg-transparent border-bottom">
-<nav class="navbar bg-transparent container">
-    <div class="container-fluid">
-        <a class="navbar-brand logo">FileFormatConverter</a>
-        <div class="d-flex links">
-            <a class="nav-link me-4" aria-current="page" href="#">Docs</a>
-            <a class="nav-link" href="#">Register</a>
-        </div>
-    </div>
-</nav>
+	<nav class="navbar bg-transparent container">
+		<div class="container-fluid">
+			<a class="navbar-brand logo">FileFormatConverter</a>
+			<div class="d-flex links">
+				<a class="nav-link me-4" aria-current="page" href="#">Docs</a>
+				<a class="nav-link" href="/register">Register</a>
+			</div>
+		</div>
+	</nav>
 </div>
 
 
 
-<div class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
-    <div class="mb-3 container">
-  <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">Secrete Token Key: </label>
-  <input type="text" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="Enter Your Token Key">
-</div>
-  <button type="button" class="btn btn-primary btn-lg py-3 start-btn">Get Started</button>
-</div>
+
+
+<form action="/index" method="post"
+	class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
+	<div class="mb-3 container w-75">
+		<label for="formGroupExampleInput" class="form-label fs-5 tokenLable">Username: </label>
+		<input type="text" name="email" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput"
+			placeholder="Email">
+			<label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Password: </label>
+		<input type="text" name="password" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput"
+			placeholder="Password">
+	</div>
+	<button type="submit" class="btn btn-primary py-3 text-center start-btn">Get Started</button>
+</form>
 
 {{> foot}}
