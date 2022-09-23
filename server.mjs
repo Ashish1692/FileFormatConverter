@@ -29,7 +29,7 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await newModel.findOne({ email: email });
+        const userData = await newModel.find({ email: email, password: password });
         if (userData) {
             res.render("converterDashboard");
         } else {
