@@ -1,28 +1,31 @@
 {{> header}}
 <div id="nav" class="bg-transparent border-bottom">
-<nav class="navbar bg-transparent container">
-    <div class="container-fluid">
-        <a class="navbar-brand logo">FileFormatConverter</a>
-        <div class="d-flex links">
-            <a class="nav-link me-4" aria-current="page" href="#">Docs</a>
-            <a class="nav-link" href="/">Home</a>
+    <nav class="navbar bg-transparent container">
+        <div class="container-fluid">
+            <a class="navbar-brand logo">FileFormatConverter</a>
+            <div class="d-flex links">
+                <a class="nav-link me-4" aria-current="page" href="#">Docs</a>
+                <a class="nav-link" href="/">Home</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </div>
 
 
 
-<form action="/register" method="POST" class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
+<form action="/" method="POST" class="container position-absolute top-50 start-50 translate-middle form-floating mb-3">
     <div class="mb-3 container w-75">
-            <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">FullName: </label>
-            <input type="text" name="fullname" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="FullName">
-            <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Email: </label>
-            <input type="text" name="email" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput" placeholder="Email">
-            <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Password: </label>
-            <input type="password" name="password" class="form-control p-2 fs-3 tokenInput mb-2" id="formGroupExampleInput" placeholder="Password">
-            
-            <span class="text-danger fs-5 py-4">{{msg}}</span>
+        <label for="formGroupExampleInput" class="form-label fs-5 tokenLable">FullName: </label>
+        <input type="text" name="fullname" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput"
+            placeholder="FullName">
+        <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Email: </label>
+        <input type="text" name="email" class="form-control p-2 fs-3 tokenInput" id="formGroupExampleInput"
+            placeholder="Email">
+        <label for="formGroupExampleInput" class="form-label mt-3 fs-5 tokenLable">Password: </label>
+        <input type="password" name="password" class="form-control p-2 fs-3 tokenInput mb-2" id="formGroupExampleInput"
+            placeholder="Password">
+
+        <span class="text-danger fs-5 py-4">{{msg}}</span>
 
 
     </div>
