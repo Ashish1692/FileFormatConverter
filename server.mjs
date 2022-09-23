@@ -29,7 +29,7 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await newModel.find({ email: email, password: password }, (err, foundResult) => {
+        const userData = await newModel.findOne({ email: email }, (err, foundResult) => {
             if (err) {
                 console.log(err);
             } else {
