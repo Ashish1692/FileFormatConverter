@@ -33,7 +33,7 @@ app.post('/index', async (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                if (foundResult.password == password && userData) {
+                if (foundResult.password == password && foundResult.email == email) {
                     res.render('converterDashboard');
                 }
                 else {
