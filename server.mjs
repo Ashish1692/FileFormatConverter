@@ -53,21 +53,21 @@ app.get('/register', (req, res) => {
 
 app.post('/register', async (req, res) => {
     try {
-            const { fullname, email, password } = req.body;
-            const doc = new newModel({
-                fullname: fullname,
-                email: email,
-                password: password
-            });
-            if (!email && !fullname && !password) {
-                return res.render('register', { msg: "Please fill the all details.", data: email})
-            } else {
-                await doc.save();
-                res.redirect('/')
-            }
-        } catch (error) {
-            console.log(error);
+        const { fullname, email, password } = req.body;
+        const doc = new newModel({
+            fullname: fullname,
+            email: email,
+            password: password
+        });
+        if (!email && !fullname && !password) {
+            return res.render('register', { msg: "Please fill the all details.", data: email })
+        } else {
+            await doc.save();
+            res.render('index')
         }
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 
