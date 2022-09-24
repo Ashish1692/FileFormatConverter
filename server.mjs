@@ -1,30 +1,23 @@
 import express from 'express';
 const app = express();
 import { join } from 'path';
-import bodyParser from 'body-parser';
 import hbs from 'hbs';
 
 const port = process.env.PORT || 3000
 
 import './src/dbConn.mjs';
-// import newModel from './src/dbSchema.mjs';
-import routes from './src/routes.mjs'
+import newModel from './src/dbSchema.mjs';
+
 
 
 app.set('views', join(process.cwd(), 'templates/views'));
 hbs.registerPartials(join(process.cwd(), 'templates/partials'));
 app.set('view engine', 'hbs');
 
-<<<<<<< HEAD
-app.use('/user', express.static(join(process.cwd(), 'public')))
-app.use(bodyParser.urlencoded({ exptended: true }));
-app.use(bodyParser.json());
-app.use('/user', routes);
-=======
+
 app.use('/', express.static(join(process.cwd(), 'public')))
 app.use(express.urlencoded({ extended: false }));
-
-
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.render('index')
@@ -36,11 +29,11 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await newModel.find({ email: email, password: password }, (err, foundResult) => {
+        const userData = await newModel.findOne({ email: email }, (err, foundResult) => {
             if (err) {
                 console.log(err);
             } else {
-                if (foundResult.password === password && foundResult.email === email) {
+                if (foundResult.password === password) {
                     res.render('converterDashboard');
                 }
                 else {
@@ -54,21 +47,9 @@ app.post('/index', async (req, res) => {
     }
 
 })
-app.get('/Dashboard', (req, res) => {
-    try {
-        newModel.find({}, (err, data) => {
-            if (data) {
-                res.render('converterDashboard', {
-                    dbData: data
-                });
-            } else {
-                throw err;
-            }
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
+// app.post('/dashboard', (req, res) => {
+//     res.render('converterDashboard')
+// })
 app.get('/convert', (req, res) => {
     res.render('fileDownload')
 })
@@ -95,8 +76,6 @@ app.post('/register', async (req, res) => {
     }
 })
 
-
->>>>>>> parent of 0780891 (update login 7)
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 })
