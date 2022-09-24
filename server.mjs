@@ -30,16 +30,16 @@ app.post('/index', async (req, res) => {
 
         await newModel.findOne({ email: email }, (error, foundResult) => {
             if (foundResult) {
-
                 if (foundResult.password === password) {
                     res.render('converterDashboard');
                 }
                 else {
                     res.render('index', { msg: 'password is incorrect!' })
-                    console.log('some error');
+                    console.log('password is incorrect');
                 }
             } else {
                 res.render('index', { msg: 'email is incorrect!' })
+                console.log("email is incorrect");
             }
         });
 
