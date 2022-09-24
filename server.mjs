@@ -76,9 +76,11 @@ app.post('/register', async (req, res) => {
                     console.log("email is existed");
                 }
             });
-            query.clone();
-            doc.save();
-            res.render('index')
+            let checkQ = query.clone();
+            if (checkQ) {
+                doc.save();
+                res.render('index')
+            }
         }
     } catch (error) {
         console.log(error);
