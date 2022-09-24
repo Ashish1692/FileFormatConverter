@@ -77,7 +77,7 @@ app.post('/register', async (req, res) => {
                 }
             });
             query.clone();
-            await doc.save();
+            doc.save();
             res.render('index')
         }
     } catch (error) {
