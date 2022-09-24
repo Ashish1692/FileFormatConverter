@@ -29,30 +29,29 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userData = await newModel.findOne({ email: email }, (err, foundResult) => {
-            if (err) {
-                console.log(err);
-            } else {
+        await newModel.findOne({ email: email }, (error, foundResult) => {
+            if (foundResult) {
+                // console.log(error, "intial email error");
+            
                 if (foundResult.password === password) {
                     res.render('converterDashboard');
                 }
                 else {
-                    res.render('index', { msg: 'email or password is incorrect!' })
+                    res.render('index', { msg: 'password is incorrect!' })
+                    console.log('some error');
                 }
+            }else{
+                res.render('index', { msg: 'email is incorrect!' })
             }
         });
 
     } catch (error) {
-        console.log(error);
+        console.log(error, 'login error');
     }
 
 })
-// app.post('/dashboard', (req, res) => {
-//     res.render('converterDashboard')
-// })
-app.get('/convert', (req, res) => {
-    res.render('fileDownload')
-})
+
+
 app.get('/register', (req, res) => {
     res.render('register')
 })
@@ -76,6 +75,9 @@ app.post('/register', async (req, res) => {
     }
 })
 
+app.get("*", (req, res) => {
+    res.send("404 Error!")
+})
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 })
