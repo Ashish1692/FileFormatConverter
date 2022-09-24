@@ -65,6 +65,18 @@ app.post('/register', async (req, res) => {
         if (!email && !fullname && !password) {
             return res.render('register', { msg: "Please fill the all details.", data: email })
         } else {
+            let query = newModel.findOne({ email: email }, (error, foundResult) => {
+                if (foundResult) {
+                    if (foundResult.password === password) {
+                        res.render('register', { msg: 'password is existed!' })
+                        console.log('password is existed');
+                    }
+                } else {
+                    res.render('register', { msg: 'email is existed!' })
+                    console.log("email is existed");
+                }
+            });
+            query.clone();
             await doc.save();
             res.render('index')
         }
