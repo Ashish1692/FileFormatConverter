@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
     res.render('index')
 });
 
-// verify the token key with mongodb and then load dashboard page
 app.post('/index', async (req, res) => {
     try {
         const email = req.body.email;
@@ -31,8 +30,7 @@ app.post('/index', async (req, res) => {
 
         await newModel.findOne({ email: email }, (error, foundResult) => {
             if (foundResult) {
-                // console.log(error, "intial email error");
-            
+
                 if (foundResult.password === password) {
                     res.render('converterDashboard');
                 }
@@ -40,7 +38,7 @@ app.post('/index', async (req, res) => {
                     res.render('index', { msg: 'password is incorrect!' })
                     console.log('some error');
                 }
-            }else{
+            } else {
                 res.render('index', { msg: 'email is incorrect!' })
             }
         });
