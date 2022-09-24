@@ -28,7 +28,7 @@ app.post('/index', async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        await newModel.findOne({ email: email }, (error, foundResult) => {
+        let query = newModel.findOne({ email: email }, (error, foundResult) => {
             if (foundResult) {
                 if (foundResult.password === password) {
                     res.render('converterDashboard');
@@ -42,7 +42,7 @@ app.post('/index', async (req, res) => {
                 console.log("email is incorrect");
             }
         });
-
+        await query.clone();
     } catch (error) {
         console.log(error, 'login error');
     }
